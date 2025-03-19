@@ -37,11 +37,13 @@ CodeQuest-to-Career/
 - Multiple approaches when applicable
 - Progress tracking
 - Learning resources and personal notes
-## 📊 Progress Dashboard
+
+ ## 📊 Progress Dashboard
 - LeetCode Problems: [9]
-- CodeForces Problems: [67]
+- CodeForces Problems: [88]
 - HackerRank Problems: [32]
-- Total Problems Solved: [106]
+- Total Problems Solved: []
+
 ## 💡 Solution Template
 Each solution includes:
 
