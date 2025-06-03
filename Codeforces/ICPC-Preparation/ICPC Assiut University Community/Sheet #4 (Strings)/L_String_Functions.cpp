@@ -56,3 +56,69 @@ int main()
         }
     }
 }
+
+// fastest 
+/*
+#include <iostream>
+using namespace std;
+#define ln long long
+#define fast ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#include <cmath>
+#include <iomanip>
+#include <algorithm>
+#include <vector>
+#include <string>
+#define endl '\n'  
+int main()
+{
+    fast int n, q;
+    string s;
+    cin >> n >> q >> s;
+    while (q--)
+    {
+        int l, r;
+        string t;
+        cin >> t;
+        if (t == "pop_back") s.pop_back();
+        else if (t == "front") cout << s.front() << endl;
+        else if (t == "back") cout << s.back() << endl;
+        else if (t == "sort")
+        {
+            cin >> l >> r; 
+            if (l > r)
+                swap(l, r);
+
+            l--; r--;
+            sort(s.begin() + l, s.begin() + r + 1);
+
+        }
+        else if (t == "reverse")
+        {
+            cin >> l >> r;
+            if (l > r)
+                swap(l, r);
+            l--; r--;
+            reverse(s.begin() + l, s.begin() + r + 1);
+        }
+        else if (t == "print")
+        {
+            cin >> l; l--;
+            cout << s[l] << endl;
+        }
+        else if (t == "substr")
+        {
+            cin >> l >> r;
+            if (l > r)
+                swap(l, r);
+            l--; r--;
+            cout << s.substr(l, r - l + 1) << endl;
+        }
+        else  if (t == "push_back") { char z; cin >> z; s.push_back(z); }
+
+    }
+
+    return 0;
+}
+
+
+*/
