@@ -1,51 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-int main() {
-    cin.tie(nullptr)->sync_with_stdio(false);
-
-    int n, q; cin >> n >> q; 
-    string S; cin >> S;
-
-
-    while (q--) {
-        string query;
-        cin >> query;
-
-        if (query == "pop_back") {
-            S.pop_back();
-        } 
-        else if (query == "front") {
-            cout << S.front() << endl;
-        } 
-        else if (query == "back") {
-            cout << S.back() << endl;
-        } 
-        else if (query == "sort") {
-            int l, r;
-            cin >> l >> r;
-            sort(S.begin() + l - 1, S.begin() + r);
-        } 
-        else if (query == "reverse") {
-            int l, r;
-            cin >> l >> r;
-            reverse(S.begin() + l - 1, S.begin() + r);
-        } 
-        else if (query == "print") {
+int main()
+{
+    int size, query;
+    cin >> size >> query;
+    string value;
+    cin >> value;
+    string qu;
+    int scope1, scope2;
+    while (query--)
+    {
+        cin >> qu;
+        if (qu == "pop_back")
+        {
+            value.pop_back();
+        }
+        else if (qu == "front")
+        {
+            cout << value.front() << endl;
+        }
+        else if (qu == "back")
+        {
+            cout << value.back() << endl;
+        }
+        else if (qu == "sort")
+        {
+            cin >> scope1 >> scope2;
+            sort(value.begin() + min(scope1, scope2) - 1, value.begin() + max(scope1, scope2));
+        }
+        else if (qu == "reverse")
+        {
+            cin >> scope1 >> scope2;
+            reverse(value.begin() + min(scope1, scope2) - 1, value.begin() + max(scope1, scope2));
+        }
+        else if (qu == "print")
+        {
             int pos;
             cin >> pos;
-            cout << S[pos - 1] << endl;
-        } 
-        else if (query == "substr") {
-            int l, r;
-            cin >> l >> r;
-            cout << S.substr(l - 1, r - l + 1) << endl;
-        } 
-        else if (query == "push_back") {
-            char x;
-            cin >> x;
-            S.push_back(x);
+            cout << value[pos - 1] << endl;
+        }
+        else if (qu == "substr")
+        {
+            cin >> scope1 >> scope2; 
+            for (int i = min(scope1, scope2) - 1; i <= max(scope1, scope2) - 1; i++)
+            {
+                cout << value[i];
+            }
+            cout << endl;
+        }
+        else
+        {
+            char c;
+            cin >> c;
+            value.push_back(c);
         }
     }
-    return 0;
 }
