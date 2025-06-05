@@ -1,69 +1,58 @@
+
+#include <iostream>
 #include <bits/stdc++.h>
+
 using namespace std;
-#define endl '\n'
 
 int main()
 {
-    cin.tie(nullptr)->sync_with_stdio(false);
-
     int n;
     cin >> n;
     string s;
     cin >> s;
     int score = 0;
-
-    int i = 0;
-    while (i < s.size())
+    for (int i = 0; i < s.size(); i++)
     {
-        if (s[i] == 'V')
+        char c = s[i];
+        if (c == 'V')
         {
             score += 5;
-            i++;
         }
-        else if (s[i] == 'W')
+        else if (c == 'W')
         {
             score += 2;
-            i++;
         }
-        else if (s[i] == 'X')
+        else if (c == 'Z')
         {
-            if (i + 1 < s.size())
-                s.erase(i + 1, 1);
-            i++;
-        }
-        else if (s[i] == 'Y')
-        {
-            if (i + 1 < s.size())
+            if (i != s.size() - 1)
             {
-                char temp = s[i + 1];
-                s.erase(i + 1, 1);
-                s.push_back(temp);
-            }
-            i++;
-        }
-        else if (s[i] == 'Z')
-        {
-            if (i + 1 < s.size())
-            {
-                if (s[i + 1] == 'V')
-                {
-                    score /= 5;
-                    s.erase(i + 1, 1);
-                }
-                else if (s[i + 1] == 'W')
+                if (s[i + 1] == 'W')
                 {
                     score /= 2;
-                    s.erase(i + 1, 1);
+                    s[i + 1] = 'a';
+                }
+                else if (s[i + 1] == 'V')
+                {
+                    score /= 5;
+                    s[i + 1] = 'a';
                 }
             }
-            i++;
         }
-        else
+        else if (c == 'Y')
         {
-            i++;
+            if (i != s.size() - 1)
+            {
+                s.push_back(s[i + 1]);
+                s[i + 1] = 'a';
+            }
+        }
+        else if (c == 'X')
+        {
+            if (i != s.size() - 1)
+            {
+                s[i + 1] = 'a';
+            }
         }
     }
-
-    cout << score << endl;
-    return 0;
+    cout << score;
 }
