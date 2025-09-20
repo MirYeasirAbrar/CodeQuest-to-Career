@@ -23,7 +23,7 @@ int main()
             if (i.second % i.first)
             {
                 cout << "-1\n";
-                return;
+                break;
             }
         }
         map<int, int> x, y;
