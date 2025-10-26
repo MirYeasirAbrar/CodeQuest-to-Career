@@ -11,7 +11,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n, x, a, k, mx, mn;
+        ll n, x, a, k, mx, mn;
         cin >> n >> x;
         mx = mn = 0;
         for (k = 1; k <= n; k++)
